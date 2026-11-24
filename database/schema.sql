@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- =====================================================================
 -- TechRental · banco de dados MySQL 8.0+ (8.0.16 ou superior por causa dos CHECK)
 -- 01 · Estrutura: tabelas, restrições, triggers e funções auxiliares
@@ -1476,3 +1477,11 @@ VALUES (fn_equipamento_id('ANAL-MS-005'), 'Porta Ethernet danificada', 'EM_REPAR
 INSERT INTO alertas_compra (equipamento_id, devolucao_id, motivo, criado_em)
 SELECT fn_equipamento_id('FONT-PD-005'), d.id, 'Perda total após curto-circuito.', '2026-11-07 11:00:00'
   FROM devolucoes d JOIN emprestimos e ON e.id = d.emprestimo_id WHERE e.codigo_os = 'OS-2026-0366';
+=======
+CREATE TABLE IF NOT EXISTS exemplos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(120) NOT NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+>>>>>>> 12ff266662b0909ae355f6be7034df0bfac9ac72
