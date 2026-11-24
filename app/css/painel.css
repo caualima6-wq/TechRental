@@ -1,0 +1,105 @@
+/* Cartões de indicadores */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.indicador {
+  padding: 20px 22px;
+  border-right: 1px solid var(--cor-borda);
+}
+
+.indicador:last-child {
+  border-right: none;
+}
+
+.indicador .numero {
+  font-family: var(--fonte-mono);
+  font-size: 34px;
+  font-weight: 500;
+  margin: 6px 0 2px;
+}
+
+.indicador p {
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+.indicador.alerta {
+  background: #fdeeee;
+}
+
+.indicador.alerta .rotulo-mono,
+.indicador.alerta .numero {
+  color: var(--cor-erro);
+}
+
+/* Duas colunas: tabela + atenção */
+.painel-grade {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Tabela */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela th {
+  padding: 10px 20px;
+  background: #faf5e8;
+  text-align: left;
+  font-family: var(--fonte-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+.tabela td {
+  padding: 12px 20px;
+  border-top: 1px solid #efe9da;
+}
+
+/* Lista "Atenção agora" */
+.lista-atencao {
+  padding: 4px 20px 20px;
+}
+
+.item-atencao {
+  margin-top: 14px;
+}
+
+.item-atencao h3 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.item-atencao p {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+@media (max-width: 900px) {
+  .indicadores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .painel-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    display: none;
+  }
+}

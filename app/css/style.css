@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --cor-primaria: #ac1a3f;
+  --cor-primaria-escura: #8f1432;
+  --cor-fundo: #f9f6f1;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1a1f2e;
+  --cor-texto-suave: #5b6272;
+  --cor-borda: #e0ded0;
+  --cor-escura: #293243;
+  --cor-erro: #b3122b;
+  --cor-erro-fundo: #fde2e4;
+  --raio: 12px;
+  --fonte-texto: 'Manrope', sans-serif;
+  --fonte-mono: 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.5;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.rotulo-mono {
+  font-family: var(--fonte-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+/* ===== Componentes compartilhados (todas as telas internas) ===== */
+
+body.pagina-interna {
+  min-height: 100vh;
+  background-image: radial-gradient(rgba(41, 50, 67, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Logo (compartilhada: login e navbar) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color: var(--cor-texto);
+}
+
+.logo strong {
+  font-weight: 800;
+  color: inherit;
+}
+
+.logo svg {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Barra de navegação */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.navbar .logo {
+  font-size: 20px;
+}
+
+.navbar .logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: #f3efe6;
+}
+
+.menu a.ativo {
+  background: #fbe3e8;
+  color: var(--cor-primaria);
+}
+
+.navbar-direita {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.busca-rapida {
+  width: 190px;
+  height: 40px;
+  padding: 0 14px;
+  background: #fffefb;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  outline: none;
+}
+
+.busca-rapida:focus {
+  border-color: var(--cor-primaria);
+}
+
+.btn-primario {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, var(--cor-primaria), var(--cor-primaria-escura));
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--raio);
+  box-shadow: 0 8px 16px -6px rgba(172, 26, 63, 0.55);
+  cursor: pointer;
+}
+
+.btn-primario:hover {
+  filter: brightness(1.08);
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 14px;
+  border-left: 1px solid var(--cor-borda);
+}
+
+.usuario-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-escura);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.usuario-nome {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.usuario-perfil {
+  font-family: var(--fonte-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--cor-texto-suave);
+}
+
+/* Conteúdo das páginas */
+.conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.cabecalho-pagina {
+  margin-bottom: 20px;
+}
+
+.cabecalho-pagina h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Cartão genérico */
+.cartao {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cartao-titulo {
+  padding: 14px 20px 8px;
+}
+
+/* Código de patrimônio (etiqueta) */
+.codigo {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #f1ead8;
+  border: 1px solid #e2d8bd;
+  border-radius: 4px 8px 8px 4px;
+  font-family: var(--fonte-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cor-escura);
+}
+
+/* Selos de status */
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.selo::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.selo-verde {
+  background: #def5e6;
+  color: #1b7a3d;
+}
+
+.selo-amarelo {
+  background: #fdefc6;
+  color: #8a5a00;
+}
+
+.selo-vermelho {
+  background: #fde2e4;
+  color: var(--cor-erro);
+}
+
+.selo-cinza {
+  background: #ebe8e0;
+  color: #5b6272;
+}
+
+/* ===== Botões extras (compartilhados) ===== */
+
+.btn-secundario {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--cor-superficie);
+  color: var(--cor-primaria);
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.btn-secundario:hover {
+  background: #fbe3e8;
+}
+
+.btn-bloco {
+  display: block;
+  width: 100%;
+}
+
+.btn-primario[aria-disabled="true"],
+.btn-primario:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===== Extras compartilhados ===== */
+
+.migalhas {
+  margin-bottom: 8px;
+}
+
+.migalhas a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.migalhas a:hover {
+  color: var(--cor-primaria);
+}
+
+.btn-neutro {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.btn-neutro:hover {
+  border-color: var(--cor-escura);
+}
+
+.estrelas {
+  color: #b9810a;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.texto-mono {
+  font-family: var(--fonte-mono);
+  font-size: 12px;
+}
+
+/* ===== Formulários (compartilhado) ===== */
+
+.campo-form {
+  margin-bottom: 14px;
+}
+
+.campo-form>label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.input-texto {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  background: #fffefb;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  color: var(--cor-texto);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input-texto:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(172, 26, 63, 0.12);
+}
+
+.caixa-info {
+  padding: 14px 16px;
+  background: #ece6d8;
+  border-radius: 12px;
+}
+
+.texto-ajuda {
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+/* ===== Filtros em formato de pílula (compartilhado) ===== */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtro {
+  padding: 8px 18px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  font-weight: 600;
+  font-size: 13px;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filtro:hover {
+  border-color: var(--cor-escura);
+}
+
+.filtro.ativo {
+  background: var(--cor-texto);
+  color: #fff;
+  border-color: var(--cor-texto);
+}
+
+/* ===== Abas em formato de pílula (links) ===== */
+
+a.filtro {
+  display: inline-block;
+  text-decoration: none;
+}
